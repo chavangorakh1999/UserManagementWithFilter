@@ -13,4 +13,4 @@
 - Just make sure you have docker compose
 - Run ```docker compose up -d```
 - Run Migrate DB api only once (! don't hit twice)
-- Perform CRUD using this token across the microsevice.
+- Perform CRUD across the microsevice.
