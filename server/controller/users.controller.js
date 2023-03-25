@@ -23,18 +23,21 @@ module.exports= {
         let last_name=req.body?.last_name;
         let email=req.body?.email;
         let phone=req.body?.phone;
+        let _id=req.body?._id;
         
         let data= {
             first_name,
             last_name,
             email,
-            phone
+            phone,
+            _id
         }
         let rules = {
             first_name:'required|string|min:2',
             last_name:'required|string|min:2',
             email:'required|email',
-            phone:'required|string|size:10'
+            phone:'required|string|size:10',
+            _id:'required|alpha_num'
         }
     
         let validation = new Validator(data, rules);
