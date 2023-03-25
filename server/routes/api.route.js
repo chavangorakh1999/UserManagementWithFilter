@@ -3,6 +3,9 @@ const express = require('express');
 const router=express.Router();
 const {register,updateUser,deleteUser}=require('../controller/users.controller')
 const {readUsers,getUserById}=require('../view/users.view')
+const {migrateDB}=require('../utils/db.migration')
+
+router.get('/migrate-db',migrateDB);
 
 router.post('/register',register);
 

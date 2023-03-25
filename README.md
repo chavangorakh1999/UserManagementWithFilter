@@ -12,5 +12,4 @@
 
 - Just make sure you have docker compose
 - Run ```docker compose up -d```
-- Generate token from ```generate-token``` api.
 - Perform CRUD using this token across the microsevice.
