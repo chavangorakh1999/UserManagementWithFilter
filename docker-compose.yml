@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+   mongo:
+      image: mongo
+      restart: always
+      ports:
+         - "27017:27017"
+   server:
+      build: ./server
+      image: server:latest
+      ports:
+         - "3000:3000"
+      depends_on:
+         - "mongo"
+      environment:
+         - CONNECTIONSTRING=mongodb://mongo:27017/userManagement
