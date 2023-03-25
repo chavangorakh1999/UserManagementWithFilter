@@ -22,10 +22,14 @@ module.exports = {
         })
         Promise.all(user_promises).then((data)=>{
             console.log("Data saved sucessully");
-            res.status(200).send("Done")
+            response_code.message="Data saved sucessully";
+            response_code.data=data;
+             res.status(success_status).send(response_code.success());
         }).catch((err)=>{
             console.log("Error");
-            res.send(500).send({...err})
+            response_code.message="Error migrating DB, please try again"
+            response_code.error=err;
+             res.status(server_status).send(response_code.serverError());
         })
     }
 }
