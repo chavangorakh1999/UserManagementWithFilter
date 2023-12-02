@@ -7,7 +7,7 @@ services:
       ports:
          - "27017:27017"
    server:
-      build: ./server
+      build: ./
       image: server:latest
       ports:
          - "3000:3000"

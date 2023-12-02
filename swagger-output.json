@@ -1,0 +1,267 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "User APIs",
+    "description": "Documentation created by <b>GRC</b>"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Endpoints"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/migrate-db": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/register": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add new user.",
+            "schema": {
+              "$ref": "#/requests/AddUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create user.",
+            "schema": {
+              "$ref": "#/definitions/UserCreationSuccessResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/user/{user_id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "params",
+            "required": true,
+            "type": "string",
+            "description": "User Id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "params",
+            "required": true,
+            "type": "string",
+            "description": "User Id"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Update user.",
+            "schema": {
+              "$ref": "#/requests/UpdateUser"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "params",
+            "required": true,
+            "type": "string",
+            "description": "User Id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserCreationSuccessResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "number",
+          "example": 200
+        },
+        "message": {
+          "type": "string",
+          "example": "User created successfully"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "a125dc6d-7b05-4b20-9b36-9e8e6821b4ed"
+            },
+            "first_name": {
+              "type": "string",
+              "example": "John"
+            },
+            "last_name": {
+              "type": "string",
+              "example": "Doe"
+            },
+            "email": {
+              "type": "string",
+              "example": "user@example.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "9999999991"
+            },
+            "created_at": {
+              "type": "string",
+              "example": "2023-12-02T13:19:04.000Z"
+            },
+            "updated_at": {
+              "type": "string",
+              "example": "2023-12-02T13:19:04.000Z"
+            },
+            "_id": {
+              "type": "string",
+              "example": "656b2f12c010066a59ede68f"
+            },
+            "__v": {
+              "type": "number",
+              "example": 0
+            }
+          }
+        },
+        "error": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    }
+  },
+  "requests": {
+    "AddUser": {
+      "type": "object",
+      "description": "Register request",
+      "required": [
+        "first_name",
+        "last_name",
+        "email",
+        "phone"
+      ],
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "First Name",
+          "example": "John"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Last Name",
+          "example": "Doe"
+        },
+        "email": {
+          "type": "string",
+          "description": "User login email",
+          "example": "user@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "description": "User Phone No",
+          "example": "9999999999"
+        }
+      }
+    },
+    "UpdateUser": {
+      "type": "object",
+      "description": "Register request",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "First Name",
+          "example": "John"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Last Name",
+          "example": "Doe"
+        },
+        "email": {
+          "type": "string",
+          "description": "User login email",
+          "example": "user@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "description": "User Phone No",
+          "example": "9999999999"
+        }
+      }
+    }
+  }
+}

@@ -29,6 +29,6 @@ mongoose.connect(process.env.CONNECTIONSTRING,
 );
 
 app.use('/api',routes);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 module.exports=app
 

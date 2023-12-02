@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const Schema=mongoose.Schema;
 
 let schema= new Schema({
-    _id:{
-        type: mongoose.Types.ObjectId,
+    id:{
+        type: String,
         required:true
     },
     first_name:{

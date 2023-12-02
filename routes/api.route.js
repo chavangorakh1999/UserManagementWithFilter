@@ -11,9 +11,9 @@ router.post('/register',register);
 
 router.get('/user/:user_id',getUserById);
 
-router.post('/update-user',updateUser);
+router.put('/user/:user_id',updateUser);
 
-router.post('/delete-user',deleteUser);
+router.delete('/user/:user_id',deleteUser);
 
 router.get('/users',readUsers);
 

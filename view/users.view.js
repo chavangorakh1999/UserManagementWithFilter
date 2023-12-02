@@ -12,7 +12,10 @@ var auth_status = response_code.unauthorized().status;
 var success_status = response_code.success().status;
 
 module.exports= {
+
     readUsers(req,res){
+        // #swagger.tags=['Users']
+
         const filters=req.query;
 
         let data= {
@@ -53,6 +56,12 @@ module.exports= {
         
     },
     getUserById(req,res){
+        // #swagger.tags=['Users']
+        /*  #swagger.parameters['user_id'] = {
+            in: 'params',
+            description: 'User Id',
+            
+        } */
         let user_id=req.params?.user_id;
 
         let data= {
