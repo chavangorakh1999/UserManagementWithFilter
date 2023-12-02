@@ -4,7 +4,10 @@ require('dotenv').config({
 });
 const mongoose=require('mongoose')
 const cors = require('cors');
-const express = require('express')
+const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+
 const bodyParser = require('body-parser');
 const routes= require('./routes/api.route')
 const app = express();
@@ -26,6 +29,6 @@ mongoose.connect(process.env.CONNECTIONSTRING,
 );
 
 app.use('/api',routes);
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 module.exports=app
 
